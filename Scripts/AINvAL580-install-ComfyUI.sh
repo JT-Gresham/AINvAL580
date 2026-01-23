@@ -40,6 +40,7 @@ echo "Installing packages from requirements.txt..."
 cd $AINvAL580dir/$ainvalpkg
 sleep 1
 AINvAL580 update AINvAL
+AINvAL580 update Torch
 pip install -r requirements.txt
 pip install -r requirements_$ainvalpkg.txt
 echo ""

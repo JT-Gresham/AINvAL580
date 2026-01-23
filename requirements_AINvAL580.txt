@@ -1,6 +1,3 @@
-torch[cu130]
-torchvision[cu130]
-torchaudio[cu130]
 torchsde
 transformers
 PyQt5

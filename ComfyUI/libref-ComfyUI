@@ -16,7 +16,7 @@ AINvAL580_update_ComfyUI () {
   wget https://raw.githubusercontent.com/JT-Gresham/AINvAL580/main/ComfyUI/requirements_$ainvalpkg.txt
   AINvAL580 update Torch
   pip install --upgrade -r requirements_$ainvalpkg.txt
-  AINvAL580 update Intel
+  AINvAL580 update AINvAL580
 #  if grep -Fxq "import intel_extension_for_pytorch as ipex" main.py
 #    then
 #      echo "Intel extensions found in launch.py...skipping"

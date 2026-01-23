@@ -41,6 +41,10 @@ echo "AINvAL580_update () {" >> $AINvAL580dir/libref
 echo "    pip install --upgrade -r $AINvAL580dir/Scripts/requirements_AINvAL580.txt" >> $AINvAL580dir/libref
 echo "}" >> $AINvAL580dir/libref
 
+echo "AINvAL580_update_Torch () {" >> $AINvAL580dir/libref
+echo "    pip install --upgrade -r $AINvAL580dir/Scripts/requirements_AINvAL580_torch.txt" >> $AINvAL580dir/libref
+echo "}" >> $AINvAL580dir/libref
+
 echo "EOF_fix () {" >> $AINvAL580dir/libref
 echo "echo    Correcting any BS WINBLOWS carriage return entries in bash scripts..." >> $AINvAL580dir/libref
 echo "    cd $AINvAL580dir/\$ainvalpkg" >> $AINvAL580dir/libref

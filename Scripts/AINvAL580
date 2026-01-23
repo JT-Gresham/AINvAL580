@@ -81,6 +81,14 @@ case $var1 in
                 source $AINvALdir/libref
                 AINvAL580_update
             ;;
+            Torch)
+                source $AINvALdir/libref
+                AINvAL580_update_Torch
+            ;;
+            torch)
+                source $AINvALdir/libref
+                AINvAL580_update_Torch
+            ;;
         esac
 ;;
     run)

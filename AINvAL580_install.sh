@@ -71,6 +71,7 @@ pip install wheel
 echo ""
 echo "Installing packages from requirements_AINvAL580_nvidia.txt..."
 pip install -r requirements_AINvAL580.txt
+pip install -r requirements_AINvAL580_torch.txt
 echo ""
 echo "Initializing the AINvAL580 command."
 ln -sf $pdirectory/AINvAL580/Scripts/AINvAL580 $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
