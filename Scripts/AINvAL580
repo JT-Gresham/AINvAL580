@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source /etc/AINvAL/AINvAL_path
-source $AINvALdir/AINvAL_env/bin/activate
+source /etc/AINvAL580/AINvAL580_path
+source $AINvAL580dir/AINvAL580_env/bin/activate
 
 var1=$(echo $1)
 var2=$(echo $2)
@@ -10,52 +10,52 @@ case $var1 in
     install)
         case $var2 in
             ComfyUI)
-                $AINvALdir/Scripts/AINvAL-install-ComfyUI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-ComfyUI.sh
             ;;
             comfyui)
-                $AINvALdir/Scripts/AINvAL-install-ComfyUI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-ComfyUI.sh
             ;;
             Ollama)
-                $AINvALdir/Scripts/AINvAL-install-Ollama.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-Ollama.sh
             ;;
             ollama)
-                $AINvALdir/Scripts/AINvAL-install-Ollama.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-Ollama.sh
             ;;
             SwarmUI)
-                $AINvALdir/Scripts/AINvAL-install-SwarmUI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-SwarmUI.sh
             ;;
             swarmui)
-                $AINvALdir/Scripts/AINvAL-install-SwarmUI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-SwarmUI.sh
             ;;
             Fooocus)
-                $AINvALdir/Scripts/AINvAL-install-Fooocus.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-Fooocus.sh
             ;;
             fooocus)
-                $AINvALdir/Scripts/AINvAL-install-Fooocus.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-Fooocus.sh
             ;;
             RoopUL)
-                $AINvALdir/Scripts/AINvAL-install-RoopUL.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-RoopUL.sh
             ;;
             roopul)
-                $AINvALdir/Scripts/AINvAL-install-RoopUL.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-RoopUL.sh
             ;;
             OmniGen)
-                $AINvALdir/Scripts/AINvAL-install-OmniGen.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-OmniGen.sh
             ;;
             omnigen)
-                $AINvALdir/Scripts/AINvAL-install-OmniGen.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-OmniGen.sh
             ;;
             CrewAI)
-                $AINvALdir/Scripts/AINvAL-install-CrewAI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-CrewAI.sh
             ;;
             crewai)
-                $AINvALdir/Scripts/AINvAL-install-CrewAI.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-CrewAI.sh
             ;;
             F5-TTS)
-                $AINvALdir/Scripts/AINvAL-install-F5-TTS.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-F5-TTS.sh
             ;;
             f5-tts)
-                $AINvALdir/Scripts/AINvAL-install-F5-TTS.sh
+                $AINvAL580dir/Scripts/AINvAL580-install-F5-TTS.sh
             ;;
             *)
                 echo "You have entered an invalid command. You may install the following:"
@@ -65,28 +65,28 @@ case $var1 in
 ;;
     update)
         case $var2 in
-            AINvAL)
-                source $AINvALdir/libref
+            AINvAL580)
+                source $AINvAL580dir/libref
                 AINvAL580_update
             ;;
             AINvAL580)
-                source $AINvALdir/libref
+                source $AINvAL580dir/libref
                 AINvAL580_update
             ;;
             ainval)
-                source $AINvALdir/libref
+                source $AINvAL580dir/libref
                 AINvAL580_update
             ;;
             ainval580)
-                source $AINvALdir/libref
+                source $AINvAL580dir/libref
                 AINvAL580_update
             ;;
             Torch)
-                source $AINvALdir/libref
+                source $AINvAL580dir/libref
                 AINvAL580_update_Torch
             ;;
             torch)
-                source $AINvALdir/libref
+                source $AINvAL580dir/libref
                 AINvAL580_update_Torch
             ;;
         esac
@@ -94,46 +94,46 @@ case $var1 in
     run)
         case $var2 in
             ComfyUI)
-                $AINvALdir/ComfyUI/ComfyUI-Start.sh
+                $AINvAL580dir/ComfyUI/ComfyUI-Start.sh
             ;;
             comfyui)
-                $AINvALdir/ComfyUI/ComfyUI-Start.sh
+                $AINvAL580dir/ComfyUI/ComfyUI-Start.sh
             ;;
             Ollama)
-                $AINvALdir/Ollama/Ollama-Start.sh
+                $AINvAL580dir/Ollama/Ollama-Start.sh
             ;;
             ollama)
-                $AINvALdir/Ollama/Ollama-Start.sh
+                $AINvAL580dir/Ollama/Ollama-Start.sh
             ;;
             Fooocus)
-                $AINvALdir/Fooocus/Fooocus-Start.sh
+                $AINvAL580dir/Fooocus/Fooocus-Start.sh
             ;;
             fooocus)
-                $AINvALdir/Fooocus/Fooocus-Start.sh
+                $AINvAL580dir/Fooocus/Fooocus-Start.sh
             ;;
             RoopUL)
-                $AINvALdir/RoopUL/RoopUL-Start.sh
+                $AINvAL580dir/RoopUL/RoopUL-Start.sh
             ;;
             roopul)
-                $AINvALdir/RoopUL/RoopUL-Start.sh
+                $AINvAL580dir/RoopUL/RoopUL-Start.sh
             ;;
             OmniGen)
-                $AINvALdir/OmniGen/OmniGen-Start.sh
+                $AINvAL580dir/OmniGen/OmniGen-Start.sh
             ;;
             omnigen)
-                $AINvALdir/OmniGen/OmniGen-Start.sh
+                $AINvAL580dir/OmniGen/OmniGen-Start.sh
             ;;
             CrewAI)
-                $AINvALdir/CrewAI/CrewAI-Start.sh
+                $AINvAL580dir/CrewAI/CrewAI-Start.sh
             ;;
             crewai)
-                $AINvALdir/CrewAI/CrewAI-Start.sh
+                $AINvAL580dir/CrewAI/CrewAI-Start.sh
             ;;
             F5-TTS)
-                $AINvALdir/F5-TTS/F5-TTS-Start.sh
+                $AINvAL580dir/F5-TTS/F5-TTS-Start.sh
             ;;
             f5-tts)
-                $AINvALdir/F5-TTS/F5-TTS-Start.sh
+                $AINvAL580dir/F5-TTS/F5-TTS-Start.sh
             ;;
             *)
                 echo "You have entered an invalid command. You may run the following:"
@@ -141,11 +141,11 @@ case $var1 in
             ;;
         esac
 ;;
-    AINvAL_env)
-        Deb4AINvAL -q "$3"
+    AINvAL580_env)
+        Deb4AINvAL580 -q "$3"
 ;;
-    AINvAL12_env)
-        Deb4AINvAL12 -q "$3"
+    AINvAL58012_env)
+        Deb4AINvAL58012 -q "$3"
 ;;
 esac
 
