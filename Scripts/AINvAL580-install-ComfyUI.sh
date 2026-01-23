@@ -63,7 +63,7 @@ echo "AINvAL580_update" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "AINvAL580_update_$ainvalpkg" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "# DEFAULT Executable" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
-echo "python $AINvAL580dir/$ainvalpkg/main.py --port 7865 \"\$@\"" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
+echo "python $AINvAL580dir/$ainvalpkg/main.py --preview-method latent2rgb --port 7865 \"\$@\"" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "#python $AINvAL580dir/$ainvalpkg/main.py --use-split-cross-attention --async-offload --port 7865 \"\$@\"" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "#python /home/LACII14/Archive-M1/AI/AINvAL580/ComfyUI/main.py --novram --bf16-unet --cpu-vae --use-split-cross-attention --disable-smart-memory --async-offload --oneapi-device-selector level_zero:gpu --port 7865 "$@"
