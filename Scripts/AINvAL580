@@ -1,0 +1,155 @@
+#!/usr/bin/env bash
+
+source /etc/AINvAL/AINvAL_path
+source $AINvALdir/AINvAL_env/bin/activate
+
+var1=$(echo $1)
+var2=$(echo $2)
+
+case $var1 in
+    install)
+        case $var2 in
+            ComfyUI)
+                $AINvALdir/Scripts/AINvAL-install-ComfyUI.sh
+            ;;
+            comfyui)
+                $AINvALdir/Scripts/AINvAL-install-ComfyUI.sh
+            ;;
+            Ollama)
+                $AINvALdir/Scripts/AINvAL-install-Ollama.sh
+            ;;
+            ollama)
+                $AINvALdir/Scripts/AINvAL-install-Ollama.sh
+            ;;
+            SwarmUI)
+                $AINvALdir/Scripts/AINvAL-install-SwarmUI.sh
+            ;;
+            swarmui)
+                $AINvALdir/Scripts/AINvAL-install-SwarmUI.sh
+            ;;
+            Fooocus)
+                $AINvALdir/Scripts/AINvAL-install-Fooocus.sh
+            ;;
+            fooocus)
+                $AINvALdir/Scripts/AINvAL-install-Fooocus.sh
+            ;;
+            RoopUL)
+                $AINvALdir/Scripts/AINvAL-install-RoopUL.sh
+            ;;
+            roopul)
+                $AINvALdir/Scripts/AINvAL-install-RoopUL.sh
+            ;;
+            OmniGen)
+                $AINvALdir/Scripts/AINvAL-install-OmniGen.sh
+            ;;
+            omnigen)
+                $AINvALdir/Scripts/AINvAL-install-OmniGen.sh
+            ;;
+            CrewAI)
+                $AINvALdir/Scripts/AINvAL-install-CrewAI.sh
+            ;;
+            crewai)
+                $AINvALdir/Scripts/AINvAL-install-CrewAI.sh
+            ;;
+            F5-TTS)
+                $AINvALdir/Scripts/AINvAL-install-F5-TTS.sh
+            ;;
+            f5-tts)
+                $AINvALdir/Scripts/AINvAL-install-F5-TTS.sh
+            ;;
+            *)
+                echo "You have entered an invalid command. You may install the following:"
+                echo "ComfyUI, Ollama, SwarmUI, OmniGen, Fooocus, RoopUL, CrewAI, F5-TTS"
+            ;;
+        esac
+;;
+    update)
+        case $var2 in
+            AINvAL)
+                source $AINvALdir/libref
+                AINvAL_update
+            ;;
+            aiinaal)
+                source $AINvALdir/libref
+                AINvAL_update
+            ;;
+            Intel)
+                pip install --upgrade -r $AINvALdir/Scripts/intel_requirements.txt
+                #echo "Temporarily disabled due to custom torch build testing..."
+            ;;
+            intel)
+                pip install --upgrade -r $AINvALdir/Scripts/intel_requirements.txt
+                #echo "Temporarily disabled due to custom torch build testing..."
+            ;;
+            Torch)
+                pip install --upgrade -r $AINvALdir/Scripts/torch_requirements.txt
+                set UR_L0_ENABLE_SYSMAN_ENV_DEFAULT=0
+                export UR_L0_ENABLE_SYSMAN_ENV_DEFAULT=0
+                #echo "Temporarily disabled due to custom torch build testing..."
+            ;;
+            torch)
+                pip install --upgrade -r $AINvALdir/Scripts/torch_requirements.txt
+                set UR_L0_ENABLE_SYSMAN_ENV_DEFAULT=0
+                export UR_L0_ENABLE_SYSMAN_ENV_DEFAULT=0
+                #echo "Temporarily disabled due to custom torch build testing..."
+            ;;
+        esac
+;;
+    run)
+        case $var2 in
+            ComfyUI)
+                $AINvALdir/ComfyUI/ComfyUI-Start.sh
+            ;;
+            comfyui)
+                $AINvALdir/ComfyUI/ComfyUI-Start.sh
+            ;;
+            Ollama)
+                $AINvALdir/Ollama/Ollama-Start.sh
+            ;;
+            ollama)
+                $AINvALdir/Ollama/Ollama-Start.sh
+            ;;
+            Fooocus)
+                $AINvALdir/Fooocus/Fooocus-Start.sh
+            ;;
+            fooocus)
+                $AINvALdir/Fooocus/Fooocus-Start.sh
+            ;;
+            RoopUL)
+                $AINvALdir/RoopUL/RoopUL-Start.sh
+            ;;
+            roopul)
+                $AINvALdir/RoopUL/RoopUL-Start.sh
+            ;;
+            OmniGen)
+                $AINvALdir/OmniGen/OmniGen-Start.sh
+            ;;
+            omnigen)
+                $AINvALdir/OmniGen/OmniGen-Start.sh
+            ;;
+            CrewAI)
+                $AINvALdir/CrewAI/CrewAI-Start.sh
+            ;;
+            crewai)
+                $AINvALdir/CrewAI/CrewAI-Start.sh
+            ;;
+            F5-TTS)
+                $AINvALdir/F5-TTS/F5-TTS-Start.sh
+            ;;
+            f5-tts)
+                $AINvALdir/F5-TTS/F5-TTS-Start.sh
+            ;;
+            *)
+                echo "You have entered an invalid command. You may run the following:"
+                echo "ComfyUI, Ollama, OmniGen, Fooocus, RoopUL, CrewAI, F5-TTS"
+            ;;
+        esac
+;;
+    AINvAL_env)
+        Deb4AINvAL -q "$3"
+;;
+    AINvAL12_env)
+        Deb4AINvAL12 -q "$3"
+;;
+esac
+
