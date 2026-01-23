@@ -69,7 +69,7 @@ echo ""
 echo "Installing wheel package..."
 pip install wheel
 echo ""
-echo "Installing packages from requirements_AINvAL580_nvidia.txt..."
+echo "Installing packages from requirements_AINvAL580.txt..."
 pip install -r requirements_AINvAL580.txt
 pip install -r requirements_AINvAL580_torch.txt
 echo ""
