@@ -17,7 +17,7 @@ echo "Press enter to continue the installation..."
 read go
 echo "AINvAL580 installer needs to check/install some PACMAN packages...Please authorize to continue..."
 #sudo pacman -S --needed intel-compute-runtime intel-graphics-compiler ocl-icd opencl-headers level-zero-loader
-wget git python-pipx 
+sudo pacman -S --needed git python-pipx 
 echo ""
 echo "--- Important Notes:"
 echo "   * This directory can get pretty big in size as you add AI Software, LLMs, Checkpoints...etc!"
@@ -71,17 +71,19 @@ pip install wheel
 echo ""
 echo "Installing packages from requirements_AINvAL580.txt..."
 pip install -r requirements_AINvAL580.txt
-pip install -r requirements_AINvAL580_torch.txt
+pip install --upgrade -r requirements_AINvAL580_torch.txt
 echo ""
 echo "Initializing the AINvAL580 command."
 ln -sf $pdirectory/AINvAL580/Scripts/AINvAL580 $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
 sudo ln -sf $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580 /bin/AINvAL580
 sudo chmod +x /bin/AINvAL580
 sudo chmod +x -R $pdirectory/AINvAL580/Scripts/
+
 sudo chmod +x $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
 echo "Creating initial \"Shared\" directory...replace with yours afterward, if necssary (symlink allowed)"
 if [ ! -d "$pdirectory/AINvAL580/Shared" ]; then
   mv ./shared1 ./shared
+  sudo chmod 777 -R $pdirectory/AINvAL580/shared
 fi
 echo "AINvAL580 framework is now installed. AI program installers are located in the \"Scripts\" directory."
 echo "AINvAL580 is updated \(if necessary\) whenever a framework program is started, however..."

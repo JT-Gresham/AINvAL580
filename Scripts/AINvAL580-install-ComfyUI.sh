@@ -35,6 +35,7 @@ echo ""
 echo "Applying AINvAL580 modifications to original $ainvalpkg..."
 AINvAL580_update_$ainvalpkg
 cp $AINvAL580dir/$ainvalpkg/user_customize_$ainvalpkg_example.sh $AINvAL580dir/$ainvalpkg/user_customize_$ainvalpkg.sh
+sudo chmod +x $AINvAL580dir/$ainvalpkg/user_customize_$ainvalpkg.sh
 echo ""
 echo "Installing packages from requirements.txt..."
 cd $AINvAL580dir/$ainvalpkg
