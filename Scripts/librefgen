@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+source /etc/AINvAL/AINvAL_path
+
+echo "Running librefgen..."
+cd $AINvALdir
+echo "Regenerating LIBREF..."
+echo "pdirectory=$pdirectory" > $AINvALdir/libref
+echo "AINvALdir=$AINvALdir" >> $AINvALdir/libref
+echo "" >> $AINvALdir/libref
+echo "export LD_LIBRARY_PATH=/lib" >> $AINvALdir/libref
+
+echo "AINvAL_update () {" >> $AINvALdir/libref
+echo "    hfcache=$(echo ~)/.cache/huggingface" >> $AINvALdir/libref
+echo "    cd $AINvALdir" >> $AINvALdir/libref
+echo "    git switch main" >> $AINvALdir/libref
+echo "    git reset --hard HEAD" >> $AINvALdir/libref
+echo "    git pull" >> $AINvALdir/libref
+echo "    rm -Rf $AINvALdir/AINvAL_env/lib/python3.11/site-packages/~*" >> $AINvALdir/libref
+echo "    rm -Rf $AINvALdir/AINvAL_env_inf/lib/python3.11/site-packages/~*" >> $AINvALdir/libref
+echo "    sed -i 's/\r//' $AINvALdir/AINvAL_install.sh 2> /dev/null" >> $AINvALdir/libref
+echo "    cd $AINvALdir/Scripts" >> $AINvALdir/libref
+echo "    for file in *.sh" >> $AINvALdir/libref
+echo "      do" >> $AINvALdir/libref
+echo "      sed -i 's/\r//' \$file" 2> /dev/null >> $AINvALdir/libref
+echo "    done" >> $AINvALdir/libref
+echo "    cd \$AINvALdir" >> $AINvALdir/libref
+echo "    for d in */" >> $AINvALdir/libref
+echo "      do" >> $AINvALdir/libref
+echo "      ainvalpkg1=\$(echo \$d | cut -d/ -f1)" >> $AINvALdir/libref 
+echo "      sed -i 's/\r//' \$ainvalpkg1/libref-\$ainvalpkg1 2> /dev/null" >> $AINvALdir/libref
+echo "    done" >> $AINvALdir/libref
+echo "    Scripts/librefgen" >> $AINvALdir/libref
+echo "    pip install --upgrade pip" >> $AINvALdir/libref
+echo "    rm -R \"\$hfcache\"" >> $AINvALdir/libref
+echo "    ln -sf \"$AINvALdir/shared/HF\" \"\$hfcache\"" >> $AINvALdir/libref
+
+echo "}" >> $AINvALdir/libref
+
+echo "AINvAL_update_Nvidia580 () {" >> $AINvALdir/libref
+echo "    pip install --upgrade -r $AINvALdir/Scripts/requirements_AINvAL580.txt" >> $AINvALdir/libref
+echo "}" >> $AINvALdir/libref
+
+echo "EOF_fix () {" >> $AINvALdir/libref
+echo "echo    Correcting any BS WINBLOWS carriage return entries in bash scripts..." >> $AINvALdir/libref
+echo "    cd $AINvALdir/\$ainvalpkg" >> $AINvALdir/libref
+echo "    for file in libref-*" >> $AINvALdir/libref
+echo "      do" >> $AINvALdir/libref
+echo "      sed -i 's/\r//' \$file 2> /dev/null" >> $AINvALdir/libref
+echo "    done" >> $AINvALdir/libref
+echo "}" >> $AINvALdir/libref
+echo "LIBREF regenerated."
