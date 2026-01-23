@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+source /etc/AINvAL580/AINvAL580_path
+ainvalpkg=ComfyUI
+
+AINvAL580_update_ComfyUI () {
+  cd $AINvAL580dir/$ainvalpkg
+  git fetch --all
+  git branch backup-master
+  git reset --hard origin/master
+  git pull
+  rm ./libref-$ainvalpkg*
+  rm ./requirements_$ainvalpkg*
+  wget https://raw.githubusercontent.com/JT-Gresham/AINvAL580/main/ComfyUI/libref-$ainvalpkg
+  wget https://raw.githubusercontent.com/JT-Gresham/AINvAL580/main/ComfyUI/user_customize_$ainvalpkg_example.sh
+  wget https://raw.githubusercontent.com/JT-Gresham/AINvAL580/main/ComfyUI/requirements_$ainvalpkg.txt
+  AINvAL580 update Torch
+  pip install --upgrade -r requirements_$ainvalpkg.txt
+  AINvAL580 update Intel
+#  if grep -Fxq "import intel_extension_for_pytorch as ipex" main.py
+#    then
+#      echo "Intel extensions found in launch.py...skipping"
+#    else
+#      sed -i 's|import logging|import logging\n\nimport torch\nimport intel_extension_for_pytorch as ipex\nimport intel_extension_for_transformers\nimport openvino\n|g' main.py
+#  fi
+#  cd $AINvAL580dir/shared/configs/ComfyUI/custom_nodes/comfyui-manager
+#  if grep -Fxq "import intel_extension_for_pytorch as ipex" prestartup_script.py
+#    then
+#      echo "Intel extensions found in prestartup_script.py...skipping"
+#    else
+#      sed -i 's|import folder_paths|import folder_paths\n\nimport torch\nimport intel_extension_for_pytorch as ipex\nimport intel_extension_for_transformers\nimport openvino\n|g' prestartup_script.py
+#  fi
+  cd $AINvAL580dir/$ainvalpkg
+  rm -R "$AINvAL580dir/$ainvalpkg/models/checkpoints"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/loras"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/clip_vision"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/controlnet"
+  rm -R "$AINvAL580dir/$ainvalpkg/wildcards"
+  rm -R "$AINvAL580dir/$ainvalpkg/user"
+  rm -R "$AINvAL580dir/$ainvalpkg/custom_nodes"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/vae"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/vae_approx"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/upscale_models"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/sams"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/ultralytics"
+  rm -R "$AINvAL580dir/$ainvalpkg/output"
+  rm custom_nodes/ComfyUI-Manager/pip_overrides.json
+  ln -sf "$AINvAL580dir/shared/checkpoints/t2i" "$AINvAL580dir/$ainvalpkg/models/checkpoints"
+  ln -sf "$AINvAL580dir/shared/loras/t2i" "$AINvAL580dir/$ainvalpkg/models/loras"
+  ln -sf "$AINvAL580dir/shared/clip_vision" "$AINvAL580dir/$ainvalpkg/models/clip_vision"
+  ln -sf "$AINvAL580dir/shared/controlnet" "$AINvAL580dir/$ainvalpkg/models/controlnet"
+  ln -sf "$AINvAL580dir/shared/wildcards/" "$AINvAL580dir/$ainvalpkg/wildcards"
+  mkdir "$AINvAL580dir/$ainvalpkg/user"
+  ln -sf "$AINvAL580dir/shared/configs/$ainvalpkg/user/" "$AINvAL580dir/$ainvalpkg/user/default"
+  ln -sf "$AINvAL580dir/shared/configs/$ainvalpkg/custom_nodes/" "$AINvAL580dir/$ainvalpkg/custom_nodes"
+  ln -sf "$AINvAL580dir/shared/VAEs/t2i/vae/" "$AINvAL580dir/$ainvalpkg/models/vae"
+  ln -sf "$AINvAL580dir/shared/VAEs/t2i/vae_approx/" "$AINvAL580dir/$ainvalpkg/models/vae_approx"
+  ln -sf "$AINvAL580dir/shared/upscale_models/" "$AINvAL580dir/$ainvalpkg/models/upscale_models"
+  ln -sf "$AINvAL580dir/shared/configs/$ainvalpkg/sams/" "$AINvAL580dir/$ainvalpkg/models/sams"
+  ln -sf "$AINvAL580dir/shared/configs/$ainvalpkg/ultralytics" "$AINvAL580dir/$ainvalpkg/models/ultralytics"
+  ln -sf "$AINvAL580dir/shared/output/ComfyUI/" "$AINvAL580dir/$ainvalpkg/output"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/diffusion_models"
+  rm -R "$AINvAL580dir/$ainvalpkg/models/text_encoders"
+  ln -sf "$AINvAL580dir/shared/diffusion_models/" "$AINvAL580dir/$ainvalpkg/models/diffusion_models"
+  ln -sf "$AINvAL580dir/shared/text_encoders/" "$AINvAL580dir/$ainvalpkg/models/text_encoders"  
+###################
+#  cp -f $AINvAL580dir/Scripts/pip_overrides.json $AINvAL580dir/$ainvalpkg/custom_nodes/ComfyUI-Manager/
+  cd $pdirectory
+  $AINvAL580dir/$ainvalpkg/user_customize_"$ainvalpkg".sh
+  cd $AINvAL580dir/$ainvalpkg
+}
+
+ComfyUI-exit () {
+    kill $(pidof python $AINvAL580dir/$ainvalpkg)
+}

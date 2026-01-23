@@ -69,7 +69,15 @@ case $var1 in
                 source $AINvALdir/libref
                 AINvAL580_update
             ;;
+            AINvAL580)
+                source $AINvALdir/libref
+                AINvAL580_update
+            ;;
             ainval)
+                source $AINvALdir/libref
+                AINvAL580_update
+            ;;
+            ainval580)
                 source $AINvALdir/libref
                 AINvAL580_update
             ;;
