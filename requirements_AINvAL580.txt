@@ -1,7 +1,7 @@
---index-url https://download.pytorch.org/whl/cu130 torch
---index-url https://download.pytorch.org/whl/cu130 torchvision
---index-url https://download.pytorch.org/whl/cu130 torchaudio
---no-index torchsde
---no-index transformers
---no-index PyQt5
---no-index PyQtWebEngine
+torch[cu130]
+torchvision[cu130]
+torchaudio[cu130]
+torchsde
+transformers
+PyQt5
+PyQtWebEngine
