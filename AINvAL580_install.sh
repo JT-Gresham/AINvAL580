@@ -72,11 +72,11 @@ echo ""
 echo "Installing packages from requirements_AINvAL580_nvidia.txt..."
 pip install -r requirements_AINvAL580.txt
 echo ""
-#echo "Initializing the AINvAL580 command."
-#ln -sf $pdirectory/AINvAL580/Scripts/AINvAL580 $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
-#sudo ln -sf $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580 /bin/AINvAL580
-#sudo chmod +x /bin/AINvAL580
-#sudo chmod +x $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
+echo "Initializing the AINvAL580 command."
+ln -sf $pdirectory/AINvAL580/Scripts/AINvAL580 $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
+sudo ln -sf $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580 /bin/AINvAL580
+sudo chmod +x /bin/AINvAL580
+sudo chmod +x $pdirectory/AINvAL580/AINvAL580_env/bin/AINvAL580
 echo "Creating initial \"Shared\" directory...replace with yours afterward, if necssary (symlink allowed)"
 if [ ! -d "$pdirectory/AINvAL580/Shared" ]; then
   mv ./shared1 ./shared
