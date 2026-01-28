@@ -34,11 +34,8 @@ echo "    Scripts/librefgen" >> $AINvAL580dir/libref
 echo "    pip install --upgrade pip" >> $AINvAL580dir/libref
 echo "    rm -R \"\$hfcache\"" >> $AINvAL580dir/libref
 echo "    ln -sf \"$AINvAL580dir/shared/HF\" \"\$hfcache\"" >> $AINvAL580dir/libref
-
-echo "}" >> $AINvAL580dir/libref
-
-echo "AINvAL580_update () {" >> $AINvAL580dir/libref
 echo "    pip install --upgrade -r $AINvAL580dir/Scripts/requirements_AINvAL580.txt" >> $AINvAL580dir/libref
+
 echo "}" >> $AINvAL580dir/libref
 
 echo "AINvAL580_update_Torch () {" >> $AINvAL580dir/libref
