@@ -2,3 +2,4 @@ torchsde
 transformers==4.57.6
 PyQt5
 PyQtWebEngine
+cuda-toolkit
