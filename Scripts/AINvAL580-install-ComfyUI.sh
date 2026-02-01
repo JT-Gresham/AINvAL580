@@ -58,8 +58,8 @@ echo "source $AINvAL580dir/libref" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.
 echo "source $AINvAL580dir/$ainvalpkg/libref-$ainvalpkg" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "source $AINvAL580dir/AINvAL580_env/bin/activate" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
-#echo "export LD_LIBRARY_PATH=$AINvAL580dir/AINvAL580_env/lib64/python3.12/site-packages/lib ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
-echo "export LD_LIBRARY_PATH=$AINvAL580dir/AINvAL580_env/lib64/python3.12/site-packages/nvidia/cu13/lib:$LD_LIBRARY_PATH" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
+#echo "export LD_LIBRARY_PATH=\"$AINvAL580dir/AINvAL580_env/lib64/python3.12/site-packages/lib ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}\"" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
+echo "export LD_LIBRARY_PATH=\"$AINvAL580dir/AINvAL580_env/lib64/python3.12/site-packages/nvidia/cu13/lib:$LD_LIBRARY_PATH\"" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 echo "AINvAL580_update" >> $AINvAL580dir/$ainvalpkg/$ainvalpkg-Start.sh
 
