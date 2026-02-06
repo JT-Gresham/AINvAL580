@@ -22,7 +22,7 @@ echo "    sed -i 's/\r//' $AINvAL580dir/AINvAL580_install.sh 2> /dev/null" >> $A
 echo "    cd $AINvAL580dir/Scripts" >> $AINvAL580dir/libref
 echo "    for file in *.sh" >> $AINvAL580dir/libref
 echo "      do" >> $AINvAL580dir/libref
-echo "      sed -i 's/\r//' \$file" 2> /dev/null >> $AINvAL580dir/libref
+echo "      sed -i 's/\r//' \$file 2> /dev/null" >> $AINvAL580dir/libref
 echo "    done" >> $AINvAL580dir/libref
 echo "    cd \$AINvAL580dir" >> $AINvAL580dir/libref
 echo "    for d in */" >> $AINvAL580dir/libref
