@@ -8,3 +8,4 @@ av
 spandrel
 webcolors
 comfy-aimdo>=0.1.6
+simpleeval
